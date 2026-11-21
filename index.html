@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hibalo: learn and translate Hiligaynon, even offline</title>
+  <meta name="description" content="Hibalo is an Android app that translates between Hiligaynon and Filipino and teaches Hiligaynon through short lessons and quizzes.">
+  <meta name="theme-color" content="#6837cd">
+  <link rel="icon" type="image/png" href="assets/logo-firefly.png">
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#top" aria-label="Hibalo, back to top">
+        <img src="assets/logo-firefly.png" alt="" width="40" height="40">
+        HIBALO
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#why">Why Hibalo</a></li>
+          <li><a href="#levels">Levels</a></li>
+          <li><a href="#credits">Credits</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero on-dark" id="top" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1 class="hero__title" id="hero-title">Learn and translate Hiligaynon, even offline.</h1>
+          <p class="hero__lead">Hibalo is an Android app that translates between Hiligaynon and Filipino and teaches Hiligaynon through short lessons and quizzes.</p>
+          <a class="button button--tonal" href="#gallery">See how it works</a>
+          <p class="hero__note">A capstone project of the Polytechnic University of the Philippines · <a href="mailto:lancemntfr@gmail.com?subject=Hibalo%20demo%20request">Demo available on request</a></p>
+        </div>
+        <div class="hero__art">
+          <img src="assets/hero-art.webp" width="776" height="779" alt="Three Hibalo app screens: the Welcome screen with the firefly mascot, the Learn lesson list and a pronunciation result marked Very close. A card shows Magandang umaga in Filipino translated to Maayong aga in Hiligaynon.">
+        </div>
+      </div>
+    </section>
+
+    <section class="section features" id="features" aria-labelledby="features-title">
+      <div class="container features__inner">
+        <header class="section-header">
+          <p class="overline">What it does</p>
+          <h2 class="section-title" id="features-title">Translate, learn and practice in one app.</h2>
+          <p class="section-lead">Look up a phrase, hear how it sounds, then practice it in a lesson. After you register once, translation keeps working without internet.</p>
+        </header>
+
+        <ul class="feature-grid">
+          <li class="feature-card feature-card--translate">
+            <span class="icon-circle"><img src="assets/icons/translate.svg" alt="" width="24" height="24"></span>
+            <h3>Translate</h3>
+            <p class="body-text">Hiligaynon and Filipino, by text, voice or camera. Listen to the Hiligaynon result spoken aloud.</p>
+          </li>
+          <li class="feature-card feature-card--learn">
+            <span class="icon-circle"><img src="assets/icons/learn.svg" alt="" width="24" height="24"></span>
+            <h3>Learn</h3>
+            <p class="body-text">Beginner, Intermediate and Advanced levels, plus an alphabet module and native-speaker audio.</p>
+          </li>
+          <li class="feature-card feature-card--practice">
+            <span class="icon-circle"><img src="assets/icons/practice.svg" alt="" width="24" height="24"></span>
+            <h3>Practice</h3>
+            <p class="body-text">Many quiz types with XP and a daily streak to keep you coming back. Learn a little each day.</p>
+          </li>
+          <li class="feature-card feature-card--pronunciation">
+            <span class="icon-circle"><img src="assets/icons/pronunciation.svg" alt="" width="24" height="24"></span>
+            <h3>Pronunciation</h3>
+            <p class="body-text">Record yourself, compare with a native speaker and get a Very close, Almost or Try again result.</p>
+          </li>
+        </ul>
+
+        <div class="also-included">
+          <p class="also-included__label" id="also-included">Also included</p>
+          <ul class="chip-list" aria-labelledby="also-included">
+            <li class="chip">Voice input</li>
+            <li class="chip">Listen to results</li>
+            <li class="chip">Camera scan</li>
+            <li class="chip">Saved words</li>
+            <li class="chip">History</li>
+            <li class="chip">App in English, Filipino or Hiligaynon</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container gallery__inner">
+        <header class="section-header">
+          <p class="overline">See it in action</p>
+          <h2 class="section-title" id="gallery-title">See every part of the app.</h2>
+          <p class="section-lead">Pick a part of the app, then choose any screen to see how it looks.</p>
+        </header>
+
+        <div class="tabs" role="tablist" aria-label="Parts of the app">
+          <button class="tab" type="button" role="tab" id="tab-translate" aria-controls="panel-translate" aria-selected="true">Translate</button>
+          <button class="tab" type="button" role="tab" id="tab-speak" aria-controls="panel-speak" aria-selected="false" tabindex="-1">Speak it</button>
+          <button class="tab" type="button" role="tab" id="tab-scan" aria-controls="panel-scan" aria-selected="false" tabindex="-1">Scan it</button>
+          <button class="tab" type="button" role="tab" id="tab-learn" aria-controls="panel-learn" aria-selected="false" tabindex="-1">Learn it</button>
+        </div>
+
+        <div class="gallery__panels">
+          <div class="panel" role="tabpanel" id="panel-translate" aria-labelledby="tab-translate">
+            <h3 class="panel__title">Translate</h3>
+            <ul class="shots" tabindex="0" aria-label="Translate screens">
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/translate-start.webp" width="464" height="1027" loading="lazy" alt="Translate screen with Filipino to Hiligaynon selected and an empty text box that says Type or paste text here.">
+                  <figcaption>Start a translation</figcaption>
+                </figure>
+              </li>
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/translate-result.webp" width="464" height="1027" loading="lazy" alt="Translate screen showing Magandang umaga in Filipino translated to Maayong aga in Hiligaynon, with listen, copy, share and save buttons.">
+                  <figcaption>Translation result</figcaption>
+                </figure>
+              </li>
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/translate-saved.webp" width="464" height="1027" loading="lazy" alt="Saved tab listing four saved Hiligaynon phrases with their Filipino meanings: Maayong aga, Wala sing anuman, Madamo nga salamat and Kamusta ka?">
+                  <figcaption>Saved words</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-speak" aria-labelledby="tab-speak">
+            <h3 class="panel__title">Speak it</h3>
+            <ul class="shots" tabindex="0" aria-label="Speak it screens">
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/speak-ready.webp" width="464" height="1027" loading="lazy" alt="Translate screen with a dialog that says Hold the mic and speak, a microphone button and Tap to start.">
+                  <figcaption>Ready to listen</figcaption>
+                </figure>
+              </li>
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/speak-listening.webp" width="464" height="1027" loading="lazy" alt="Listening dialog showing the words heard so far, Magandang umaga po, around a glowing microphone button.">
+                  <figcaption>Listening</figcaption>
+                </figure>
+              </li>
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/speak-result.webp" width="464" height="1027" loading="lazy" alt="Translate screen filled from voice input: Magandang umaga in Filipino translated to Maayong aga in Hiligaynon, with a note to check for mistakes.">
+                  <figcaption>Spoken translation</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-scan" aria-labelledby="tab-scan">
+            <h3 class="panel__title">Scan it</h3>
+            <ul class="shots" tabindex="0" aria-label="Scan it screens">
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/scan-photo.webp" width="464" height="1027" loading="lazy" alt="Scan text from a photo sheet with two options: Take a photo or Choose from gallery.">
+                  <figcaption>Take or choose a photo</figcaption>
+                </figure>
+              </li>
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/scan-reading.webp" width="464" height="1027" loading="lazy" alt="A photo with the words Magandang umaga being read, with a progress bar and the note that it works offline.">
+                  <figcaption>Reading the photo</figcaption>
+                </figure>
+              </li>
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/scan-result.webp" width="464" height="1027" loading="lazy" alt="Translate screen filled from the photo: Magandang umaga in Filipino translated to Maayong aga in Hiligaynon, with a note to check for mistakes.">
+                  <figcaption>Translated text</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-learn" aria-labelledby="tab-learn">
+            <h3 class="panel__title">Learn it</h3>
+            <ul class="shots" tabindex="0" aria-label="Learn it screens">
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/learn-lessons.webp" width="464" height="1027" loading="lazy" alt="Learn screen with the Beginner level selected and four lessons: Letters and Sounds done, Greetings and Courtesy in progress, and two locked lessons.">
+                  <figcaption>Beginner lessons</figcaption>
+                </figure>
+              </li>
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/learn-detail.webp" width="464" height="1027" loading="lazy" alt="Lesson 2, Greetings and Courtesy: 12 parts in 10 minutes, three lesson goals and a Start lesson button.">
+                  <figcaption>Lesson detail</figcaption>
+                </figure>
+              </li>
+              <li class="shot">
+                <figure>
+                  <img src="assets/screens/learn-match.webp" width="464" height="1027" loading="lazy" alt="Match pairs quiz, question 7 of 10: match Hiligaynon words such as Kamusta ka? with their Filipino meanings.">
+                  <figcaption>Match pairs</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why" id="why" aria-labelledby="why-title">
+      <div class="container why__inner">
+        <div class="why__text">
+          <header class="section-header">
+            <p class="overline">Why Hibalo</p>
+            <h2 class="section-title" id="why-title">A language that is fading at home.</h2>
+          </header>
+          <p>In Sta. Maria, Sto. Tomas City, Batangas, many Hiligaynon speakers moved from the Visayas for work and brought their language with them. Parents taught basic words at home, but outside the home Tagalog took over, and children grew up more used to Tagalog.</p>
+          <p>There was no community program and no dedicated digital tool for Hiligaynon, so keeping the language alive relied on families. Hibalo was built to give speakers and learners one place to translate, hear and practice it.</p>
+        </div>
+        <ul class="stats">
+          <li class="stat">
+            <p class="stat__value">7.3%</p>
+            <p class="body-text">of Philippine households speak Hiligaynon at home (2020 Census, PSA)</p>
+          </li>
+          <li class="stat">
+            <p class="stat__value">3rd</p>
+            <p class="body-text">most widely spoken home language in the country</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section levels" id="levels" aria-labelledby="levels-title">
+      <div class="container levels__inner">
+        <header class="section-header">
+          <p class="overline">The levels</p>
+          <h2 class="section-title" id="levels-title">Three levels, one short part at a time.</h2>
+        </header>
+        <div class="level-grid">
+          <details class="level-card">
+            <summary class="level-card__summary">
+              <span class="chip chip--success">Beginner · Level 1</span>
+              <h3>Start with the basics</h3>
+              <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+            </summary>
+            <ul class="bullets body-text">
+              <li>Letters and sounds</li>
+              <li>Greetings</li>
+              <li>Numbers and time</li>
+              <li>People and places</li>
+              <li>Simple sentences</li>
+            </ul>
+          </details>
+          <details class="level-card">
+            <summary class="level-card__summary">
+              <span class="chip chip--lagoon">Intermediate · Level 2</span>
+              <h3>Speak in everyday situations</h3>
+              <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+            </summary>
+            <ul class="bullets body-text">
+              <li>Everyday conversations</li>
+              <li>Role-plays</li>
+              <li>Verb forms</li>
+            </ul>
+          </details>
+          <details class="level-card">
+            <summary class="level-card__summary">
+              <span class="chip chip--coral">Advanced · Level 3</span>
+              <h3>Sound more natural</h3>
+              <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+            </summary>
+            <ul class="bullets body-text">
+              <li>Idioms</li>
+              <li>Formal and casual speech</li>
+              <li>Spotting mistakes</li>
+              <li>Longer stories and conversations</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section built" id="credits" aria-labelledby="built-title">
+      <div class="container built__inner">
+        <div class="built__top">
+          <header class="section-header">
+            <p class="overline">Built with</p>
+            <h2 class="section-title" id="built-title">Made to work on the phone, offline.</h2>
+          </header>
+          <ul class="chip-list" aria-label="Technology">
+            <li class="chip">Flutter</li>
+            <li class="chip">Firebase</li>
+            <li class="chip">Offline translation</li>
+            <li class="chip">Offline Hiligaynon voice</li>
+            <li class="chip">Camera text reading</li>
+            <li class="chip">Designed in Figma</li>
+          </ul>
+        </div>
+        <div class="info-grid">
+          <details class="info-card info-card--data">
+            <summary class="info-card__summary">
+              <span class="icon-circle"><img src="assets/icons/groups.svg" alt="" width="24" height="24"></span>
+              <h3>Built with native speakers and real language data</h3>
+              <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+            </summary>
+              <p class="body-text">About <strong>5,000 Hiligaynon–Filipino translation</strong> pairs were gathered in person from native speakers and verified by the team and a native Hiligaynon speaker. These were combined with around <strong>60,000 sentence pairs</strong> from public dictionaries and Bible translations, and over <strong>400,000 Hiligaynon and Filipino sentences</strong> from the web, so the translator works fully offline on the phone.</p>
+          </details>
+          <details class="info-card info-card--credits">
+            <summary class="info-card__summary">
+              <span class="icon-circle"><img src="assets/icons/info.svg" alt="" width="24" height="24"></span>
+              <h3>Credits and license</h3>
+              <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+            </summary>
+              <p class="body-text">The Hiligaynon voice was fine-tuned on the PLD dataset by UP-DSP and is based on MMS, licensed CC BY-NC 4.0 (non-commercial use). Translation data includes the Open Hiligaynon Contemporary Bible (Biblica, CC BY-SA 4.0), the Kaufmann and Motus Hiligaynon dictionaries, and Tatoeba (CC BY 2.0 FR). The translator was trained with the help of MADLAD-400 (Apache 2.0).</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section team on-dark" id="team" aria-labelledby="team-title">
+      <div class="container team__inner">
+        <header class="section-header">
+          <p class="overline">The team</p>
+          <h2 class="section-title" id="team-title">The people behind Hibalo.</h2>
+        </header>
+        <ul class="team-grid">
+          <li>
+            <details class="team-card">
+              <summary class="team-card__summary">
+                <img src="assets/team/Montifar.webp" width="600" height="600" loading="lazy" alt="Portrait of Lance Montifar">
+                <span class="team-card__role">Developer</span>
+                <h3>Lance Montifar</h3>
+                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+              </summary>
+              <p class="team-card__bio">Developed the Hiligaynon audio module, built the translation module and the Hibalo app, helped build the learning module, and worked on the design and layout.</p>
+            </details>
+          </li>
+          <li>
+            <details class="team-card">
+              <summary class="team-card__summary">
+                <img src="assets/team/Barretto.webp" width="600" height="600" loading="lazy" alt="Portrait of Dan Lawrence Barretto">
+                <span class="team-card__role">Designer</span>
+                <h3>Dan Lawrence Barretto</h3>
+                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+              </summary>
+              <p class="team-card__bio">Developed the learning module, helped the development of translation module and contributed to the design and layout of Hibalo.</p>
+            </details>
+          </li>
+          <li>
+            <details class="team-card">
+              <summary class="team-card__summary">
+                <img src="assets/team/Esteban.webp" width="600" height="600" loading="lazy" alt="Portrait of Bea Louella Esteban">
+                <span class="team-card__role">Developer</span>
+                <h3>Bea Louella Esteban</h3>
+                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+              </summary>
+              <p class="team-card__bio">Contributed to the early development of the app, helped the progress of learning module and supported the development of translation module.</p>
+            </details>
+          </li>
+          <li>
+            <details class="team-card">
+              <summary class="team-card__summary">
+                <img src="assets/team/Lapitan.webp" width="600" height="600" loading="lazy" alt="Portrait of Reyco Lapitan">
+                <span class="team-card__role">Co-researcher</span>
+                <h3>Reyco Lapitan</h3>
+                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+              </summary>
+              <p class="team-card__bio">Contributed to the development of the translation module and helped the progress of Hibalo.</p>
+            </details>
+          </li>
+          <li>
+            <details class="team-card">
+              <summary class="team-card__summary">
+                <img src="assets/team/Angeles.webp" width="600" height="600" loading="lazy" alt="Portrait of Alaiza Gwenn Angeles">
+                <span class="team-card__role">Co-researcher</span>
+                <h3>Alaiza Gwenn Angeles</h3>
+                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path class="chevron__more" d="M12 14.95C11.8667 14.95 11.7417 14.9292 11.625 14.8875C11.5083 14.8458 11.4 14.775 11.3 14.675L6.7 10.075C6.51667 9.89167 6.425 9.65833 6.425 9.375C6.425 9.09167 6.51667 8.85833 6.7 8.675C6.88333 8.49167 7.11667 8.4 7.4 8.4C7.68333 8.4 7.91667 8.49167 8.1 8.675L12 12.575L15.9 8.675C16.0833 8.49167 16.3167 8.4 16.6 8.4C16.8833 8.4 17.1167 8.49167 17.3 8.675C17.4833 8.85833 17.575 9.09167 17.575 9.375C17.575 9.65833 17.4833 9.89167 17.3 10.075L12.7 14.675C12.6 14.775 12.4917 14.8458 12.375 14.8875C12.2583 14.9292 12.1333 14.95 12 14.95Z"/><path class="chevron__less" d="M12 10.775L8.1 14.675C7.91667 14.8583 7.68333 14.95 7.4 14.95C7.11667 14.95 6.88333 14.8583 6.7 14.675C6.51667 14.4917 6.425 14.2583 6.425 13.975C6.425 13.6917 6.51667 13.4583 6.7 13.275L11.3 8.675C11.4 8.575 11.5083 8.50417 11.625 8.4625C11.7417 8.42083 11.8667 8.4 12 8.4C12.1333 8.4 12.2583 8.42083 12.375 8.4625C12.4917 8.50417 12.6 8.575 12.7 8.675L17.3 13.275C17.4833 13.4583 17.575 13.6917 17.575 13.975C17.575 14.2583 17.4833 14.4917 17.3 14.675C17.1167 14.8583 16.8833 14.95 16.6 14.95C16.3167 14.95 16.0833 14.8583 15.9 14.675L12 10.775Z"/></svg>
+              </summary>
+              <p class="team-card__bio">Contributed to the design and layout of the app and supported the progress of Hibalo.</p>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq__inner">
+        <header class="section-header">
+          <p class="overline">FAQ</p>
+          <h2 class="section-title" id="faq-title">Questions and answers.</h2>
+        </header>
+        <div class="faq-grid" data-faq>
+          <div class="faq-item">
+            <h3>Do I need internet?</h3>
+            <div class="faq-item__answer">
+              <p class="body-text">Only to register. After that, translation, voice input and camera scan work without internet.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3>Which devices does it run on?</h3>
+            <div class="faq-item__answer">
+              <p class="body-text">Android phones running Android 7.0 or newer.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3>Do I need to know Filipino?</h3>
+            <div class="faq-item__answer">
+              <p class="body-text">Not necessarily. The app can be set to English, Filipino or Hiligaynon, and lessons are in English and Filipino. The translator works between Hiligaynon and Filipino.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3>How accurate are the translations?</h3>
+            <div class="faq-item__answer">
+              <p class="body-text">They are built from native-speaker data and designed as a learning aid. For formal or important documents, check with a fluent speaker.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3>Can I download Hibalo?</h3>
+            <div class="faq-item__answer">
+              <p class="body-text">Hibalo is a capstone project of the Polytechnic University of the Philippines and is not publicly distributed. Contact <a href="mailto:lancemntfr@gmail.com">lancemntfr@gmail.com</a> to request a demo.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3>How do I report a mistake or get help?</h3>
+            <div class="faq-item__answer">
+              <p class="body-text">Email <a href="mailto:lancemntfr@gmail.com">lancemntfr@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta on-dark" aria-labelledby="cta-title">
+      <div class="container cta__inner">
+        <h2 id="cta-title">Want to try Hibalo?</h2>
+        <p>Hibalo is not publicly distributed. To try it, email <a href="mailto:lancemntfr@gmail.com">lancemntfr@gmail.com</a> and we will arrange a demo.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer on-dark">
+    <div class="container site-footer__inner">
+      <div class="site-footer__top">
+        <a class="brand" href="#top" aria-label="Hibalo, back to top">
+          <img src="assets/logo-firefly.png" alt="" width="40" height="40">
+          HIBALO
+        </a>
+        <nav class="footer-nav" aria-label="Footer">
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#why">Why Hibalo</a></li>
+            <li><a href="#levels">Levels</a></li>
+            <li><a href="#credits">Credits</a></li>
+            <li><a href="#team">Team</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p>© 2026 Polytechnic University of the Philippines. All rights reserved. Hibalo is a capstone project and is not publicly distributed. Translations are intended as a learning aid.</p>
+    </div>
+  </footer>
+</body>
+</html>

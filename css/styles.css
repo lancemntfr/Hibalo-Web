@@ -1,0 +1,1829 @@
+/* Hibalo website styles. Tokens mirror the "V6" variables in the Figma file.
+   Sizes are fluid: they match the Figma desktop frame at 1440px and above and
+   scale down smoothly to the 390px mobile frame. */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../assets/fonts/plus-jakarta-sans-latin.woff2") format("woff2");
+}
+
+:root {
+  /* Colour */
+  --color-primary: #6837cd;
+  --color-primary-strong: #321b58;
+  --color-primary-container: #ece3fc;
+  --color-on-primary: #ffffff;
+  --color-on-primary-muted: #ece3fc;
+  --color-on-primary-container: #321b58;
+  --color-background: #fff9f1;
+  --color-surface: #ffffff;
+  --color-surface-tint: #f4eefd;
+  --color-text-primary: #261445;
+  --color-text-secondary: #45306e;
+  --color-text-muted: #66558a;
+  --color-border-divider: #e9e1f2;
+  --color-border-neutral: #8e8b98;
+  --color-accent: #ddf36b;
+  --color-accent-container: #f3fbcb;
+  --color-accent-container-soft: #fafde8;
+  --color-on-accent: #321b58;
+  --color-coral-container: #ffe8e3;
+  --color-lagoon-container: #ddf3ef;
+  --color-success: #1b6e3f;
+  --color-success-container: #e6f4ec;
+  --color-focus: #6837cd;
+  --color-focus-on-dark: #ddf36b;
+  --color-icon: #3d3060;
+
+  /* Spacing (Figma 4, 8, 12 ... 48) */
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-20: 1.25rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-40: 2.5rem;
+
+  /* Radius */
+  --radius-medium: 0.75rem;
+  --radius-large: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 999rem;
+
+  /* Type. Each size reaches its Figma desktop value at 1440px. */
+  --font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-display: clamp(2.25rem, 2.5vw + 1.25rem, 3.25rem);     /* 36 -> 52 at a 16px root */
+  --fs-headline: clamp(1.75rem, 0.75vw + 1.325rem, 1.875rem); /* 28 -> 30 at a 16px root */
+  --fs-headline-sm: clamp(1.375rem, 0.57vw + 1.24rem, 1.75rem); /* 22 -> 28 */
+  --fs-title-lg: clamp(1.125rem, 0.57vw + 1.01rem, 1.5rem);  /* 18 -> 24 */
+  --fs-title: clamp(1.125rem, 0.19vw + 1.08rem, 1.25rem);    /* 18 -> 20 */
+  --fs-body-xl: clamp(1.125rem, 0.38vw + 1.03rem, 1.375rem); /* 18 -> 22 */
+  --fs-body: clamp(1rem, 0.35vw + 0.9rem, 1.125rem);         /* 16 -> 18 */
+  --fs-label: clamp(0.9375rem, 0.095vw + 0.914rem, 1rem);    /* 15 -> 16 */
+  --fs-label-sm: clamp(0.8125rem, 0.095vw + 0.79rem, 0.875rem); /* 13 -> 14 */
+  --fs-caption: 0.75rem;
+
+  /* Layout */
+  --content-max: 78rem;                       /* 1120px of content plus the side padding */
+  --gutter: clamp(1rem, 4vw, 4rem);
+  --section-padding: clamp(2rem, 5.67vw, 5.1rem); /* 32 -> 82, 15% less than the Figma 96 */
+  --section-gap: clamp(2rem, 3.33vw, 3rem);    /* 32 -> 48 */
+  --header-height: calc(5rem + 1px); /* 80px bar plus its 1px bottom border */
+  --hero-padding: clamp(1.5rem, 5.56vw, 5rem); /* 24 -> 80 */
+}
+
+/* Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* One global scale for tablets and laptops: 14px up to about 1280px wide,
+   rising to 16px at about 1700px. Phones stay at the browser default.
+   Percentages keep browser zoom and the user's font setting working. */
+@media (min-width: 48em) {
+  html {
+    font-size: clamp(87.5%, 0.476vw + 49.4%, 100%);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.0125em;
+  color: var(--color-text-primary);
+  background: var(--color-background);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-focus-on-dark);
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-8);
+  left: var(--space-8);
+  z-index: 10;
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-medium);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+  outline-color: var(--color-focus-on-dark);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-padding);
+}
+
+/* Type helpers */
+
+.overline {
+  font-size: var(--fs-label-sm);
+  font-weight: 800;
+  line-height: 1.43;
+  letter-spacing: 0;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.section-title {
+  max-width: 47.5rem;
+  font-size: var(--fs-headline);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.009em;
+}
+
+.section-lead {
+  max-width: 45rem;
+  font-size: var(--fs-body-xl);
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--color-text-secondary);
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.body-text {
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--color-text-secondary);
+}
+
+/* Chips */
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-12);
+  align-items: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  font-size: var(--fs-label-sm);
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0;
+}
+
+.chip--success {
+  background: var(--color-success-container);
+  color: var(--color-success);
+}
+
+.chip--lagoon {
+  background: var(--color-lagoon-container);
+  color: var(--color-on-accent);
+}
+
+.chip--coral {
+  background: var(--color-coral-container);
+  color: var(--color-on-accent);
+}
+
+/* Icon circle */
+
+.icon-circle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+}
+
+.icon-circle img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Buttons */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0 var(--space-24);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.006em;
+  text-decoration: none;
+}
+
+.button--tonal {
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+/* Header */
+
+.site-header {
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border-divider);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--fs-title);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.brand img {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0 var(--space-4);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+@media (max-width: 47.99em) {
+  .site-nav {
+    display: none;
+  }
+}
+
+/* Hero */
+
+.hero {
+  display: grid;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(min(100dvh, 50rem) - var(--header-height));
+  padding-block: var(--hero-padding) clamp(2.5rem, 5.56vw, 5rem);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  overflow: clip;
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-32);
+  align-items: center;
+}
+
+@media (min-width: 64em) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 32.5rem) minmax(0, 1fr);
+    gap: clamp(2rem, 3vw, 3rem);
+  }
+}
+
+.hero__text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+}
+
+.hero__title {
+  font-size: var(--fs-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.009em;
+}
+
+.hero__lead {
+  font-size: var(--fs-body-xl);
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--color-on-primary-muted);
+}
+
+.hero__note {
+  font-size: var(--fs-label);
+  color: var(--color-on-primary-muted);
+}
+
+.hero__note a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+/* The art keeps its aspect ratio and never grows past its column, 80% of the
+   screen height, or (on desktop) the space left in the first screen. */
+.hero__art img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(80vh, 30rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 64em) {
+  .hero__art img {
+    max-height: min(80vh, max(20rem, calc(100dvh - var(--header-height) - 2 * var(--hero-padding))));
+  }
+}
+
+/* Features */
+
+.features {
+  background: var(--color-background);
+}
+
+.features__inner,
+.levels__inner,
+.built__inner,
+.team__inner,
+.faq__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 1.67vw, 1.5rem);
+}
+
+@media (min-width: 48em) {
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 75em) {
+  .feature-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.feature-card {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: var(--space-4) var(--space-16);
+  align-content: start;
+  padding: clamp(1.25rem, 1.67vw, 1.5rem);
+  border-radius: var(--radius-large);
+}
+
+.feature-card .icon-circle {
+  grid-row: span 2;
+}
+
+.feature-card h3 {
+  font-size: var(--fs-title-lg);
+  font-weight: 700;
+  line-height: 1.33;
+}
+
+@media (min-width: 48em) {
+  .feature-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-16);
+  }
+
+  .feature-card .icon-circle {
+    grid-row: auto;
+  }
+}
+
+.feature-card--translate { background: var(--color-primary-container); }
+.feature-card--learn { background: var(--color-accent-container); }
+.feature-card--practice { background: var(--color-coral-container); }
+.feature-card--pronunciation { background: var(--color-lagoon-container); }
+
+.also-included {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-12);
+  align-items: center;
+}
+
+.also-included__label {
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+}
+
+/* Gallery */
+
+.gallery {
+  background: var(--color-surface-tint);
+}
+
+.gallery__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.22vw, 2rem);
+}
+
+.gallery .overline {
+  font-size: var(--fs-caption);
+  line-height: 1.33;
+  letter-spacing: 0.08em;
+}
+
+.gallery .section-lead {
+  max-width: none;
+  font-size: var(--fs-title);
+  line-height: 1.5;
+}
+
+.tabs {
+  display: none;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.js .tabs {
+  display: flex;
+}
+
+@media (min-width: 48em) {
+  .tabs {
+    gap: var(--space-12);
+  }
+}
+
+.tab {
+  min-height: 2.125rem;
+  padding: 0.375rem var(--space-12);
+  border: 1px solid var(--color-border-divider);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font: inherit;
+  font-size: var(--fs-label-sm);
+  font-weight: 700;
+  line-height: 1.43;
+  letter-spacing: 0.007em;
+  cursor: pointer;
+}
+
+@media (min-width: 48em) {
+  .tab {
+    min-height: 2.875rem;
+    padding: var(--space-12) var(--space-24);
+  }
+}
+
+.tab[aria-selected="true"] {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.gallery__panels {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+/* Without JavaScript every panel is shown with its own title. */
+.panel__title {
+  margin-bottom: var(--space-12);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.js .panel__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.js .panel[hidden] {
+  display: none;
+}
+
+.shots {
+  display: flex;
+  gap: var(--space-16);
+  padding: var(--space-24);
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-container);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-24);
+  scrollbar-width: none;
+}
+
+.shots::-webkit-scrollbar {
+  display: none;
+}
+
+.shot {
+  flex: 0 0 min(15.625rem, 78%);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 48em) {
+  .shots {
+    justify-content: center;
+    gap: clamp(1rem, 2.22vw, 2rem);
+    padding: clamp(1.5rem, 2.78vw, 2.5rem);
+    overflow: visible;
+  }
+
+  .shot {
+    flex: 0 1 14.5rem;
+    min-width: 0;
+  }
+}
+
+/* Each exported screen includes the phone's drop shadow below the device,
+   so pull the caption back up by the shadow's height. */
+.shot img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  margin-bottom: -13.9%;
+}
+
+.shot figcaption {
+  margin-top: var(--space-12);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.006em;
+}
+
+.dots {
+  display: none;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-top: var(--space-20);
+}
+
+.js .dots {
+  display: flex;
+}
+
+@media (min-width: 48em) {
+  .js .dots {
+    display: none;
+  }
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-border-neutral);
+}
+
+.dot--active {
+  width: 1.5rem;
+  background: var(--color-primary);
+}
+
+/* Why Hibalo */
+
+.why {
+  background: var(--color-surface);
+}
+
+.why__inner {
+  display: grid;
+  gap: var(--space-32);
+  align-items: center;
+}
+
+@media (min-width: 64em) {
+  .why__inner {
+    grid-template-columns: minmax(0, 37.5rem) minmax(0, 20rem);
+    justify-content: space-between;
+  }
+}
+
+.why__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.why__text p:not(.overline) {
+  font-size: var(--fs-body-xl);
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--color-text-secondary);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 1.67vw, 1.5rem);
+}
+
+@media (min-width: 64em) {
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: clamp(1.25rem, 2.22vw, 2rem);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-tint);
+}
+
+.stat__value {
+  font-size: var(--fs-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.009em;
+  color: var(--color-primary);
+}
+
+/* Levels */
+
+.levels {
+  background: var(--color-background);
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 1.67vw, 1.5rem);
+}
+
+@media (min-width: 64em) {
+  .level-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.level-card {
+  padding: clamp(1.5rem, 2.22vw, 2rem);
+  border: 1px solid var(--color-border-divider);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+}
+
+.level-card h3 {
+  margin-top: var(--space-16);
+  font-size: var(--fs-headline-sm);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.007em;
+}
+
+.level-card .bullets {
+  margin-top: var(--space-16);
+}
+
+.bullets li::before {
+  content: "\2022\00a0";
+}
+
+/* Built with and credits */
+
+.built {
+  background: var(--color-surface);
+}
+
+.built__top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.built__top .section-title {
+  max-width: 35rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 1.67vw, 1.5rem);
+}
+
+@media (min-width: 64em) {
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.info-card {
+  --card-padding: clamp(1.5rem, 2.22vw, 2rem);
+  position: relative;
+  padding: var(--card-padding);
+  padding-left: calc(var(--card-padding) + 3rem + var(--space-20));
+  border-radius: var(--radius-xl);
+}
+
+.info-card .icon-circle {
+  position: absolute;
+  top: var(--card-padding);
+  left: var(--card-padding);
+}
+
+.info-card .body-text {
+  margin-top: var(--space-8);
+}
+
+.info-card--data { background: var(--color-primary-container); }
+.info-card--credits { background: var(--color-accent-container-soft); }
+
+.info-card h3 {
+  font-size: var(--fs-title-lg);
+  font-weight: 700;
+  line-height: 1.33;
+}
+
+/* Team */
+
+.team {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.team .overline {
+  color: var(--color-accent);
+}
+
+.team-grid {
+  display: grid;
+  gap: var(--space-16);
+}
+
+@media (min-width: 48em) {
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+}
+
+.team-card {
+  padding: var(--space-20);
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-strong);
+}
+
+.team-card img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+  object-fit: cover;
+  object-position: center 20%; /* keep faces in frame when the square photo is cropped */
+}
+
+@media (min-width: 48em) {
+  .team-grid > li {
+    display: flex;
+    flex: 1 1 18rem;
+    max-width: 20rem;
+  }
+
+  .team-card {
+    flex: 1;
+    padding: clamp(1rem, 1.5vw, 1.5rem);
+  }
+
+  .team-card__role {
+    margin-top: var(--space-20);
+  }
+
+  .team-card h3,
+  .team-card__bio {
+    margin-top: var(--space-8);
+  }
+
+  .team-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 296 / 220;
+    max-height: 12rem;
+    border-radius: var(--radius-large);
+  }
+}
+
+.team-card__role {
+  display: block;
+  font-size: var(--fs-label-sm);
+  font-weight: 800;
+  line-height: 1.43;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.team-card h3 {
+  font-size: var(--fs-headline-sm);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.007em;
+}
+
+.team-card__bio {
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--color-on-primary-muted);
+}
+
+/* Smaller team cards from tablet up; phones keep the sizes above. */
+@media (min-width: 48em) {
+  .team-card h3 {
+    font-size: clamp(1.125rem, 1vw + 0.8rem, 1.5rem);
+  }
+
+  .team-card__bio {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+}
+
+/* FAQ */
+
+.faq {
+  background: var(--color-background);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(0.75rem, 1.67vw, 1.5rem);
+}
+
+@media (min-width: 48em) {
+  .faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 75em) {
+  .faq-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-24);
+  border: 1px solid var(--color-border-divider);
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+}
+
+.faq-item h3 {
+  font-size: var(--fs-title);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+/* Accordion mode (small screens, JavaScript on). */
+.faq-item--accordion {
+  gap: 0;
+  padding: 0;
+}
+
+.faq-item__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  width: 100%;
+  min-height: 3.5rem;
+  padding: var(--space-16) var(--space-20);
+  border: 0;
+  border-radius: var(--radius-large);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-item__button svg {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.faq-item__button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.faq-item--accordion .faq-item__answer {
+  padding: 0 var(--space-20) var(--space-20);
+}
+
+.faq-item__answer[hidden] {
+  display: none;
+}
+
+/* Call to action (small screens only, as in the mobile design) */
+
+.cta {
+  padding-block: var(--space-40);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.cta__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.cta h2 {
+  font-size: var(--fs-headline);
+  font-weight: 800;
+  line-height: 1.29;
+  letter-spacing: -0.007em;
+}
+
+.cta p {
+  color: var(--color-on-primary-muted);
+}
+
+.cta a {
+  color: inherit;
+}
+
+@media (min-width: 48em) {
+  .cta {
+    display: none;
+  }
+}
+
+/* Footer */
+
+.site-footer {
+  padding-block: clamp(2rem, 3.33vw, 3rem);
+  background: var(--color-text-primary);
+  color: var(--color-on-primary-muted);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16) var(--space-32);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-footer .brand {
+  color: var(--color-on-primary);
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 clamp(1.5rem, 2.22vw, 2rem);
+}
+
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  color: var(--color-on-primary);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+/* Phones (below 768px): slightly smaller type and about 15% tighter card
+   padding and gaps. Tablet and desktop sizes are not affected. */
+@media (max-width: 47.99em) {
+  :root {
+    --fs-body: clamp(0.9375rem, 0.25vw + 0.875rem, 1rem);           /* 15 on phones */
+    --fs-display: clamp(2rem, 2.5vw + 1.25rem, 3.25rem);            /* 32 on phones */
+    --fs-headline: clamp(1.5rem, 0.75vw + 1.2rem, 1.875rem);        /* 24 on phones */
+    --fs-headline-sm: clamp(1.125rem, 0.57vw + 0.95rem, 1.75rem);   /* 18 on phones */
+    --card-tighten: 0.85;
+  }
+
+  .team-card__bio {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .feature-grid,
+  .stats {
+    gap: calc(var(--space-16) * var(--card-tighten));
+  }
+
+  .faq-grid {
+    gap: calc(var(--space-12) * var(--card-tighten));
+  }
+
+  .feature-card {
+    gap: var(--space-4) calc(var(--space-16) * var(--card-tighten));
+    padding: calc(var(--space-20) * var(--card-tighten));
+  }
+
+  .stat {
+    gap: calc(var(--space-8) * var(--card-tighten));
+    padding: calc(var(--space-20) * var(--card-tighten));
+  }
+
+  .faq-item {
+    gap: calc(var(--space-8) * var(--card-tighten));
+    padding: calc(var(--space-24) * var(--card-tighten));
+  }
+
+  .faq-item--accordion {
+    gap: 0;
+    padding: 0;
+  }
+
+  .faq-item__button {
+    padding: calc(var(--space-16) * var(--card-tighten)) calc(var(--space-20) * var(--card-tighten));
+  }
+
+  .faq-item--accordion .faq-item__answer {
+    padding: 0 calc(var(--space-20) * var(--card-tighten)) calc(var(--space-20) * var(--card-tighten));
+  }
+
+  .shots {
+    gap: calc(var(--space-16) * var(--card-tighten));
+    padding: calc(var(--space-24) * var(--card-tighten));
+    scroll-padding-inline: calc(var(--space-24) * var(--card-tighten));
+  }
+}
+
+/* Dropdowns: Levels, Built with and Team.
+   Phones: native <details>/<summary>, every row starts closed.
+   768px and up: main.js opens every row and stops toggling; the title rows
+   become plain headings. Without JavaScript, the ::details-content rule at
+   the end keeps the content visible on desktop. */
+
+.level-card__summary,
+.info-card__summary,
+.team-card__summary {
+  list-style: none;
+  cursor: pointer;
+  border-radius: var(--radius-large);
+}
+
+.level-card__summary::-webkit-details-marker,
+.info-card__summary::-webkit-details-marker,
+.team-card__summary::-webkit-details-marker {
+  display: none;
+}
+
+.chevron {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-icon);
+}
+
+.team-card .chevron {
+  color: var(--color-on-primary);
+}
+
+details:not([open]) .chevron__less,
+details[open] .chevron__more {
+  display: none;
+}
+
+/* Levels: chip and title on the left, chevron on the right. */
+.level-card__summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-16) var(--space-12);
+  align-items: center;
+  justify-items: start;
+}
+
+.level-card__summary h3 {
+  margin-top: 0;
+}
+
+.level-card__summary .chevron {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+/* Built with: title and chevron in a row; the icon sits in the card's gutter. */
+.info-card__summary {
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.info-card h3 {
+  flex: 1;
+}
+
+@media (max-width: 47.99em) {
+  .levels__inner,
+  .built__inner,
+  .team__inner {
+    gap: var(--space-20);
+  }
+
+  /* Levels */
+  .level-grid {
+    gap: var(--space-8);
+  }
+
+  .level-card {
+    padding: var(--space-16) var(--space-20);
+    border-radius: var(--radius-large);
+  }
+
+  .level-card__summary {
+    gap: var(--space-8) var(--space-12);
+  }
+
+  .level-card h3 {
+    line-height: 1.33;
+    letter-spacing: 0.006em;
+  }
+
+  .level-card .bullets {
+    margin-top: var(--space-12);
+  }
+
+  /* Built with */
+  .info-grid {
+    gap: var(--space-8);
+  }
+
+  .info-card,
+  .info-card--data,
+  .info-card--credits {
+    padding: var(--space-16) var(--space-20);
+    border: 1px solid var(--color-border-divider);
+    border-radius: var(--radius-large);
+    background: var(--color-surface);
+  }
+
+  .info-card .icon-circle {
+    position: static;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .info-card h3 {
+    line-height: 1.33;
+    letter-spacing: 0.006em;
+  }
+
+  .info-card .body-text {
+    margin-top: var(--space-12);
+  }
+
+  /* Team: photo in a left column, role, name and bio stacked to its right.
+     The photo is taken out of flow so the bio can sit right under the name
+     while the summary stays a normal, focusable box. */
+  .team-grid {
+    gap: var(--space-12);
+  }
+
+  .team-card {
+    --photo: 4.5rem;
+    --photo-gap: var(--space-16);
+    position: relative;
+    min-height: calc(var(--photo) + 2 * var(--space-16));
+    padding: var(--space-16);
+    padding-left: calc(var(--space-16) + var(--photo) + var(--photo-gap));
+  }
+
+  .team-card__summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1.5rem;
+    column-gap: var(--space-16);
+    row-gap: var(--space-4);
+    align-items: start;
+  }
+
+  .team-card__summary img {
+    position: absolute;
+    top: var(--space-16);
+    left: var(--space-16);
+    width: var(--photo);
+    height: var(--photo);
+    border-radius: var(--radius-large);
+  }
+
+  .team-card__role {
+    grid-column: 1;
+  }
+
+  .team-card__summary h3 {
+    grid-column: 1;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  .team-card__summary .chevron {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .team-card__bio {
+    margin-top: var(--space-4);
+    padding-right: calc(1.5rem + var(--space-16));
+  }
+}
+
+/* Phones: text audit against the mobile Figma frames (node 890:10127).
+   Sizes that bypassed the phone variables, or were larger than Figma. */
+@media (max-width: 47.99em) {
+  /* Hero */
+  .hero__lead {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero .button {
+    font-size: 1rem;
+  }
+
+  .hero__note {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Labels: Figma uses 12px for overlines, chips, tabs and team roles */
+  .overline,
+  .gallery .overline,
+  .team-card__role {
+    font-size: 0.75rem;
+    line-height: 1.33;
+    letter-spacing: 0.08em;
+  }
+
+  .chip,
+  .tab {
+    font-size: 0.75rem;
+    line-height: 1.33;
+    letter-spacing: 0.033em;
+  }
+
+  /* Intro paragraphs: Figma 16px / 24px */
+  .section-lead,
+  .gallery .section-lead,
+  .why__text p:not(.overline) {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Feature cards: title 16px bold, text 14px / 20px */
+  .feature-card h3 {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.006em;
+  }
+
+  .feature-card .body-text,
+  .also-included__label {
+    font-size: 0.875rem;
+    line-height: 1.43;
+  }
+
+  /* Built with: 17px so the long title fits on two lines */
+  .info-card h3 {
+    font-size: 1.0625rem;
+  }
+
+  /* FAQ question: Figma 16px bold */
+  .faq-item h3,
+  .faq-item__button {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  /* Footer: logo and links centred like the mobile design, copyright
+     note justified (no hyphenation). Links 14px, note 13px. */
+  .site-footer {
+    padding-block: var(--space-32);
+  }
+
+  .site-footer__inner {
+    gap: var(--space-16);
+  }
+
+  .site-footer__top {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .footer-nav ul {
+    justify-content: center;
+    gap: 0 var(--space-20);
+  }
+
+  .footer-nav a {
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.006em;
+  }
+
+  .site-footer__inner > p {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    text-align: justify;
+    hyphens: none;
+  }
+}
+
+/* 768px and up: no dropdowns. Title rows are plain headings (main.js also
+   opens every row and takes the title rows out of the Tab order). */
+@media (min-width: 48em) {
+  /* Built with cards: a column so the content sits at the top and the
+     background fills the stretched height. */
+  .info-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-card h3 {
+    flex: none;
+  }
+
+  .level-card__summary,
+  .info-card__summary,
+  .team-card__summary {
+    display: contents;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .chevron {
+    display: none;
+  }
+
+  .level-card__summary h3 {
+    margin-top: var(--space-16);
+  }
+
+  .level-card__summary .chip {
+    vertical-align: top;
+  }
+}
+
+/* No-JavaScript fallback: show the content of closed rows on desktop. */
+@supports selector(::details-content) {
+  @media (min-width: 48em) {
+    .level-card::details-content,
+    .info-card::details-content,
+    .team-card::details-content {
+      display: contents;
+      content-visibility: visible;
+    }
+  }
+}
+
+/* Narrow phones (below 380px): tighter link gap so the five footer links stay on one row. */
+@media (max-width: 23.74em) {
+  .footer-nav ul {
+    column-gap: var(--space-12);
+  }
+}
+
+/* =========================================================================
+   Polish: hover, focus and light motion.
+   - Colour changes: hover only on devices that really hover, plus the same
+     change on :focus-visible for keyboard users.
+   - Lift, scale, shadow, smooth scroll and transitions: only when the user
+     has not asked for reduced motion. With reduced motion, only colour changes.
+   ========================================================================= */
+
+:root {
+  --elevation-2: 0 4px 16px rgba(50, 27, 88, 0.1);   /* V6/Elevation/2 */
+  --elevation-3: 0 8px 24px rgba(50, 27, 88, 0.16);  /* deeper, same V6 shadow colour */
+  --motion-fast: 150ms;
+  --motion: 200ms;
+}
+
+main > section {
+  scroll-margin-top: var(--header-height);
+}
+
+/* Nav links: underline that grows from the left. */
+.site-nav a,
+.footer-nav a {
+  position: relative;
+}
+
+.site-nav a::after,
+.footer-nav a::after {
+  content: "";
+  position: absolute;
+  left: var(--link-inset, 0);
+  right: var(--link-inset, 0);
+  bottom: calc(50% - 0.85em);
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.site-nav a {
+  --link-inset: var(--space-4);
+}
+
+/* The active gallery tab stands out from the white ones. */
+.tab[aria-selected="true"] {
+  box-shadow: var(--elevation-2);
+}
+
+/* --- Colour changes on hover (real hover devices only) ------------------- */
+@media (hover: hover) and (pointer: fine) {
+  .site-nav a:hover {
+    color: var(--color-primary-strong);
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-accent);
+  }
+
+  .site-nav a:hover::after,
+  .footer-nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .button--tonal:hover {
+    background: var(--color-surface);
+  }
+
+  .tab:not([aria-selected="true"]):hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-container);
+    color: var(--color-on-primary-container);
+  }
+
+  .hero__note a:hover,
+  .cta a:hover {
+    color: var(--color-on-primary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .faq-item__answer a:hover {
+    color: var(--color-primary-strong);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .level-card:hover {
+    border-color: var(--color-primary);
+  }
+
+  .faq-item__button:hover {
+    background: var(--color-surface-tint);
+  }
+}
+
+/* --- The same colour changes for keyboard focus --------------------------- */
+.site-nav a:focus-visible {
+  color: var(--color-primary-strong);
+}
+
+.footer-nav a:focus-visible {
+  color: var(--color-accent);
+}
+
+.site-nav a:focus-visible::after,
+.footer-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.button--tonal:focus-visible {
+  background: var(--color-surface);
+}
+
+.tab:not([aria-selected="true"]):focus-visible {
+  border-color: var(--color-primary);
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+.hero__note a:focus-visible,
+.cta a:focus-visible {
+  color: var(--color-on-primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.faq-item__answer a:focus-visible {
+  color: var(--color-primary-strong);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.faq-item__button:focus-visible {
+  background: var(--color-surface-tint);
+}
+
+/* Phone dropdown rows: soft tint when the title row is hovered or focused. */
+@media (max-width: 47.99em) {
+  .level-card:has(> summary:focus-visible),
+  .info-card:has(> summary:focus-visible) {
+    background: var(--color-surface-tint);
+  }
+}
+
+@media (max-width: 47.99em) and (hover: hover) and (pointer: fine) {
+  .level-card:has(> summary:hover),
+  .info-card:has(> summary:hover) {
+    background: var(--color-surface-tint);
+  }
+}
+
+/* --- Motion (skipped entirely with reduced motion) ----------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Transitions */
+  .site-nav a,
+  .footer-nav a,
+  .hero__note a,
+  .cta a,
+  .faq-item__answer a {
+    transition: color var(--motion-fast) ease-out, text-decoration-color var(--motion-fast) ease-out;
+  }
+
+  .site-nav a::after,
+  .footer-nav a::after {
+    transition: transform var(--motion) ease-out;
+  }
+
+  .button {
+    transition: transform var(--motion) ease-out, box-shadow var(--motion) ease-out, background-color var(--motion) ease-out;
+  }
+
+  .tab {
+    transition: background-color var(--motion) ease-out, color var(--motion) ease-out, border-color var(--motion) ease-out, box-shadow var(--motion) ease-out;
+  }
+
+  .feature-card,
+  .level-card,
+  .info-card {
+    transition: transform var(--motion) ease-out, box-shadow var(--motion) ease-out, border-color var(--motion) ease-out, background-color var(--motion) ease-out;
+  }
+
+  .feature-card .icon-circle,
+  .shot img,
+  .chevron,
+  .faq-item__button svg {
+    transition: transform var(--motion) ease-out;
+  }
+
+  .faq-item__button {
+    transition: background-color var(--motion-fast) ease-out;
+  }
+
+  .dot {
+    transition: width var(--motion) ease-out, background-color var(--motion) ease-out;
+  }
+
+  /* Buttons: lift 2px, deeper shadow; back down when pressed. */
+  .button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--elevation-3);
+  }
+
+  .button:active {
+    transform: translateY(0);
+    box-shadow: var(--elevation-2);
+  }
+
+  /* Phone FAQ and dropdown chevrons nudge in the direction they point. */
+  .faq-item__button:focus-visible svg {
+    transform: translateY(2px);
+  }
+
+  .faq-item__button[aria-expanded="true"]:focus-visible svg {
+    transform: rotate(180deg) translateY(2px);
+  }
+
+  :is(.level-card, .info-card):not([open]) > summary:focus-visible .chevron {
+    transform: translateY(2px);
+  }
+
+  :is(.level-card, .info-card)[open] > summary:focus-visible .chevron {
+    transform: translateY(-2px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--elevation-3);
+    }
+
+    .button:active {
+      transform: translateY(0);
+      box-shadow: var(--elevation-2);
+    }
+
+    /* Cards lift 4px with a soft shadow and a thin outline. */
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--elevation-2), 0 0 0 1px var(--color-primary);
+    }
+
+    .feature-card:hover .icon-circle {
+      transform: scale(1.05);
+    }
+
+    .shot:hover img {
+      transform: translateY(-4px);
+    }
+
+    .faq-item__button:hover svg {
+      transform: translateY(2px);
+    }
+
+    .faq-item__button[aria-expanded="true"]:hover svg {
+      transform: rotate(180deg) translateY(2px);
+    }
+
+    :is(.level-card, .info-card):not([open]) > summary:hover .chevron {
+      transform: translateY(2px);
+    }
+
+    :is(.level-card, .info-card)[open] > summary:hover .chevron {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Level, credit and team cards lift on desktop (on phones they are dropdown rows). */
+  @media (min-width: 48em) and (hover: hover) and (pointer: fine) {
+    .level-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--elevation-2);
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--elevation-2), 0 0 0 1px var(--color-primary);
+    }
+  }
+}
+
+/* Team cards (768px and up): lift with a stronger shadow, photo zooms inside
+   its rounded frame, name turns lime. Same on :focus-within. No hover styles
+   on phones. The photo has no wrapper, so the frame is a clip-path that
+   shrinks by the same 4% the image grows: the visible box stays put. */
+@media (min-width: 48em) and (prefers-reduced-motion: no-preference) {
+  .team-card {
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  }
+
+  .team-card img {
+    clip-path: inset(0 round var(--radius-large));
+    transition: transform 300ms ease-out, clip-path 300ms ease-out;
+  }
+
+  .team-card h3 {
+    transition: color 200ms ease-out;
+  }
+
+  .team-card:focus-within {
+    transform: translateY(-4px);
+    box-shadow: var(--elevation-3);
+  }
+
+  .team-card:focus-within img {
+    transform: scale(1.04);
+    clip-path: inset(1.923% round calc(var(--radius-large) / 1.04));
+  }
+
+  .team-card:focus-within h3 {
+    color: var(--color-accent);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--elevation-3);
+    }
+
+    .team-card:hover img {
+      transform: scale(1.04);
+      clip-path: inset(1.923% round calc(var(--radius-large) / 1.04));
+    }
+
+    .team-card:hover h3 {
+      color: var(--color-accent);
+    }
+  }
+}
