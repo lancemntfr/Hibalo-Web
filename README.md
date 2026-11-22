@@ -20,3 +20,7 @@ css/         styles
 js/          gallery tabs, FAQ and the dropdown cards
 assets/      images, icons and the font
 ```
+
+## Before publishing
+
+Some things on the page still need to be confirmed. Only the Beginner audio is recorded, and the lessons haven't been checked by a native speaker yet, so the "native-speaker audio" and "Built with native speakers" lines need to change or be confirmed. The translation pair counts, Android 7.0, the census figure and the contact email also need checking. Team names and photos need each person's permission.
