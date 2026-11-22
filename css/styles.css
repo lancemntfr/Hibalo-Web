@@ -642,7 +642,12 @@ a {
   margin-bottom: -13.9%;
 }
 
+/* The caption overlaps the image's baked-in shadow strip (negative margin
+   above). Keep it above the image, which gets its own layer when it lifts
+   on hover. */
 .shot figcaption {
+  position: relative;
+  z-index: 1;
   margin-top: var(--space-12);
   font-size: var(--fs-label);
   font-weight: 700;
